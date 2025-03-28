@@ -1,41 +1,99 @@
-import { useEffect, useState } from "react";
-import girl from "../assets/img_girl.jpg";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../context/Context";
 
 const Home = () => {
-
-  const [data, setData] = useState({})
-  console.log(data);
+  const { user, dispatch } = useContext(Context);
+  const PF = "http://localhost:8800/images/";
+  const [currentUser, setCurrentUser] = useState(user);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const user = localStorage.getItem("currentUser")
-    if (user) setData(JSON.parse(user))
-  }, [])
+    setCurrentUser(user);
+  }, [user]);
+
   return (
+    <div className="bg-gray-100 shadow-md fixed top-0 left-0 w-full z-50">
+      <div className="flex items-center justify-between py-4 px-6 md:px-[90px]">
+        <ul className="hidden md:flex bg-white text-lg items-center gap-6 px-6 py-2 rounded-lg shadow-md text-gray-700">
+          <li><Link to="/" className="hover:text-blue-600">HOME</Link></li>
+          <li> <Link to="/About" className="hover:text-blue-600">ABOUT</Link></li>
+          <li><Link to="/Contact" className="hover:text-blue-600">CONTACT</Link></li>
+          <li><Link to="/Write" className="hover:text-blue-600">WRITE</Link></li>
+          {currentUser && (
+            <li
+              className="cursor-pointer hover:text-red-600" onClick={() => {
+                dispatch({ type: "LOGOUT" });
+                localStorage.removeItem("currentUser"); setCurrentUser(null);
+              }}> LOGOUT
+            </li>
+          )}
+        </ul>
+        <button className="md:hidden text-gray-600 text-2xl focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
+          <i className={menuOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars"}></i>
+        </button>
+        <div
+          className={`absolute top-16 left-0 w-full bg-gradient-to-r from-gray-100 to-blue-50 py-6 px-4 flex flex-col gap-5 items-center list-none rounded-lg shadow-lg md:hidden transform transition-transform duration-500 ease-in-out ${menuOpen ? "translate-y-0 opacity-100" : "hidden -translate-y-full opacity-0"
+            }`} >
+          <li>
+            <Link
+              to="/"
+              className="bg-gray-700 px-8 py-2 text-white text-lg w-full rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300"
+              onClick={() => setMenuOpen(false)} >HOME
+            </Link>
+          </li>
+          <li>
+            <Link to="/About"
+              className="bg-gray-700 px-8 py-2 text-white text-lg w-full rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300"
+              onClick={() => setMenuOpen(false)}> ABOUT
+            </Link>
+          </li>
+          <li>
+            <Link to="/Contact"
+              className="bg-gray-700 px-8 py-2 text-white text-lg w-full rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300"
+              onClick={() => setMenuOpen(false)} > CONTACT
+            </Link>
+          </li>
+          <li className="w-full text-center">
+            <Link
+              to="/Write"
+              className="bg-gray-700 px-8 py-2 text-white text-lg w-full rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300"
+              onClick={() => setMenuOpen(false)}>WRITE
+            </Link>
+          </li>
 
-    <div className="flex items-center justify-between p-6 bg-gray-100 shadow-md">
-      <div className="flex gap-4 text-gray-600">
-        <i className="fa-brands fa-facebook text-xl cursor-pointer hover:text-blue-600 transition-colors duration-200"></i>
-        <i className="fa-brands fa-square-instagram text-xl cursor-pointer hover:text-pink-500 transition-colors duration-200"></i>
-        <i className="fa-brands fa-pinterest text-xl cursor-pointer hover:text-red-600 transition-colors duration-200"></i>
-        <i className="fa-brands fa-twitter text-xl cursor-pointer hover:text-blue-400 transition-colors duration-200"></i>
+          {currentUser && (
+
+
+            <Link className="bg-gray-700 px-8 py-2 text-white text-lg w-full rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300"
+              onClick={() => {
+                dispatch({ type: "LOGOUT" });
+                localStorage.removeItem("currentUser");
+                setCurrentUser(null);
+                setMenuOpen(false);
+              }}>
+              LOGOUT
+            </Link>
+          )}
+        </div>
+        <div className="flex items-center gap-2 md:gap-4">
+          {currentUser ? (
+            <Link to="/Settings">
+              <img className="w-8 h-8 md:w-10 md:h-10 rounded-full cursor-pointer border border-gray-300" src={PF + user.profilePic} alt="User" />
+            </Link>
+          ) : (
+            <div className="hidden md:flex items-center gap-4">
+              <Link
+                className="bg-white text-gray-700 text-base md:text-lg px-2 md:px-3 py-1 md:py-2 shadow-md rounded-lg hover:bg-gray-100 transition" to="/Login">Login
+              </Link>
+              <Link
+                className="bg-white text-gray-700 text-base md:text-lg px-2 md:px-3 py-1 md:py-2 shadow-md rounded-lg hover:bg-gray-100 transition" to="/Register" >Register
+              </Link>
+            </div>
+          )}
+          <i className="fa-solid fa-magnifying-glass text-lg md:text-xl text-gray-600 cursor-pointer hover:text-gray-900 transition-colors duration-200"></i>
+        </div>
       </div>
-
-      <ul className="bg-white text-lg flex items-center gap-6 px-6 py-2 rounded-lg shadow-md text-gray-700">
-        <Link className="cursor-pointer hover:text-gray-900 transition-colors duration-200" to="/">HOME</Link>
-        <Link className="cursor-pointer hover:text-gray-900 transition-colors duration-200" to="/About">ABOUT</Link>
-        <Link className="cursor-pointer hover:text-gray-900 transition-colors duration-200" to="/Contact">CONTACT</Link>
-        <Link className="cursor-pointer hover:text-gray-900 transition-colors duration-200" to="/Write" >WRITE</Link>
-        <li className="cursor-pointer hover:text-gray-900 transition-colors duration-200">LOGOUT</li>
-      </ul>
-
-      <div className="flex items-center gap-4">
-        <img className="w-10 h-10 rounded-full cursor-pointer border border-gray-300" src={girl} alt="User" />
-        <i className="fa-solid fa-magnifying-glass text-xl text-gray-600 cursor-pointer hover:text-gray-900 transition-colors duration-200"></i>
-      </div>
-      {/* <span className="font-semibold text-2xl">
-        Welcome, {data?.username || "Guest"}
-      </span> */}
     </div>
   );
 };

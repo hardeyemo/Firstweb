@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import about from "../assets/img_girl.jpg";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Side = () => {
-  const [cats, setCats] = useState([])
+  const [cats, setCats] = useState([]);
 
   useEffect(() => {
     const fetchCats = async () => {
-      const res = await axios.get('http://localhost:8800/app/categories/')
-      setCats(res.data)
-    }
-    fetchCats()
-  }, [])
-  return (
-    <div className="flex flex-col items-center w-[50%] bg-gray-50 p-4 rounded-lg shadow-lg">
+      const res = await axios.get('http://localhost:8800/app/categories/');
+      setCats(res.data);
+    };
+    fetchCats();
+  }, []);
 
+  return (
+    <div className="flex flex-col items-center w-80 bg-gray-50 p-4 rounded-lg shadow-lg h-auto">
+      {/* ABOUT Section */}
       <div className="flex flex-col items-center border-t-2 border-gray-300 w-full py-4">
         <h1 className="text-lg font-semibold text-gray-700 mb-2">ABOUT</h1>
         <img className="w-full h-48 object-cover rounded-md border mb-3" src={about} alt="About" />
@@ -22,22 +25,19 @@ const Side = () => {
         </p>
       </div>
 
+      {/* Categories Section */}
       <div className="flex flex-col items-center w-full text-center mt-6">
         <h1 className="text-lg font-semibold text-gray-700 mb-3">CATEGORIES</h1>
-        {/* <div className="grid grid-cols-2 gap-3 text-gray-600 border-t-2 border-gray-300 pt-3 w-full">
+        <ul className="grid grid-cols-2 gap-3 text-gray-600 border-t-2 border-gray-300 pt-3 w-full">
           {cats.map((c) => (
-            <p>{c.name}</p>
-          ))
-          }
-          <p className="cursor-pointer hover:text-gray-900 transition-colors">Sport</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors">Tech</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors">Music</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors">Style</p>
-          <p className="cursor-pointer hover:text-gray-900 transition-colors">Cinema</p>
-        </div> */}
+            <Link key={c.name} to={`/?cat=${c.name}`}>
+              <li className="cursor-pointer hover:text-gray-900 transition-colors">{c.name}</li>
+            </Link>
+          ))}
+        </ul>
       </div>
 
-      {/* Social Icons Section */}
+      {/* Social Media Icons */}
       <div className="flex gap-4 text-gray-600 border-t-2 border-gray-300 pt-4 mt-6 w-full justify-center">
         <i className="fa-brands fa-facebook text-xl cursor-pointer hover:text-blue-600 transition-colors"></i>
         <i className="fa-brands fa-square-instagram text-xl cursor-pointer hover:text-pink-500 transition-colors"></i>
@@ -46,6 +46,6 @@ const Side = () => {
       </div>
     </div>
   );
-}
+};
 
 export default Side;
