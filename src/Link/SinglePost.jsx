@@ -19,8 +19,10 @@ const SinglePost = () => {
   const deleteMe = async () => {
     try {
       await axios.delete(`http://localhost:8800/app/posts/${post._id}`, {
-        data: { username: user.username },
+        params: { username: user.username },
       });
+      console.log("Post ID:", post._id);
+      console.log("Username:", user.username);
       window.location.replace("/");
     } catch (error) {
       console.error("Failed to delete the post:", error);
