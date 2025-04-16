@@ -21,7 +21,10 @@ const Side = () => {
         <h1 className="text-lg font-semibold text-gray-700 mb-2">ABOUT</h1>
         <img className="w-full h-48 object-cover rounded-md border mb-3" src={about} alt="About" />
         <p className="text-gray-600 text-sm text-center px-4 border-b-2 border-gray-300 pb-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt laborum necessitatibus, animi quia! Aliquam illum aut saepe?
+          <p className="text-gray-600 text-sm text-center px-4 border-b-2 border-gray-300 pb-4">
+            Welcome to my first web project! I'm exploring the world of frontend development and using this space to practice React and share what I'm building.
+          </p>
+
         </p>
       </div>
 
@@ -38,11 +41,28 @@ const Side = () => {
       </div>
 
       {/* Social Media Icons */}
-      <div className="flex gap-4 text-gray-600 border-t-2 border-gray-300 pt-4 mt-6 w-full justify-center">
-        <i className="fa-brands fa-facebook text-xl cursor-pointer hover:text-blue-600 transition-colors"></i>
-        <i className="fa-brands fa-square-instagram text-xl cursor-pointer hover:text-pink-500 transition-colors"></i>
-        <i className="fa-brands fa-pinterest text-xl cursor-pointer hover:text-red-600 transition-colors"></i>
-        <i className="fa-brands fa-twitter text-xl cursor-pointer hover:text-blue-400 transition-colors"></i>
+      <div className="flex justify-center space-x-6 text-gray-600 text-2xl">
+        <a
+          href="https://www.facebook.com/yourfacebookprofile"
+          aria-label="Facebook"
+          className="hover:text-blue-500 transition-colors duration-300"
+        >
+          <i className="fab fa-facebook"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/yourinstagramprofile"
+          aria-label="Instagram"
+          className="hover:text-pink-500 transition-colors duration-300"
+        >
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a
+          href="/https://www.twitter.com"
+          aria-label="Twitter"
+          className="hover:text-blue-400 transition-colors duration-300"
+        >
+          <i className="fab fa-twitter"></i>
+        </a>
       </div>
     </div>
   );

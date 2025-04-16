@@ -16,10 +16,10 @@ const Home = () => {
     <div className="bg-gray-100 shadow-md fixed top-0 left-0 w-full z-50">
       <div className="flex items-center justify-between py-4 px-6 md:px-[90px]">
         <ul className="hidden md:flex bg-white text-lg items-center gap-6 px-6 py-2 rounded-lg shadow-md text-gray-700">
-          <li><Link to="/" className="hover:text-blue-600">HOME</Link></li>
-          <li> <Link to="/About" className="hover:text-blue-600">ABOUT</Link></li>
-          <li><Link to="/Contact" className="hover:text-blue-600">CONTACT</Link></li>
-          <li><Link to="/Write" className="hover:text-blue-600">WRITE</Link></li>
+          <Link to="/" className="hover:text-blue-600">HOME</Link>
+          <Link to="/About" className="hover:text-blue-600">ABOUT</Link>
+          <Link to="/Contact" className="hover:text-blue-600">CONTACT</Link>
+          <Link to="/Write" className="hover:text-blue-600">WRITE</Link>
           {currentUser && (
             <li
               className="cursor-pointer hover:text-red-600" onClick={() => {
@@ -63,8 +63,6 @@ const Home = () => {
           </li>
 
           {currentUser && (
-
-
             <Link className="bg-gray-700 px-8 py-2 text-white text-lg w-full rounded-md hover:bg-blue-600 hover:text-white transition-all duration-300"
               onClick={() => {
                 dispatch({ type: "LOGOUT" });
@@ -93,8 +91,8 @@ const Home = () => {
           )}
           <i className="fa-solid fa-magnifying-glass text-lg md:text-xl text-gray-600 cursor-pointer hover:text-gray-900 transition-colors duration-200"></i>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

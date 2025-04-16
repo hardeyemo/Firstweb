@@ -1,7 +1,6 @@
 import React from 'react';
-import Nav from "../components/Nav"
-import Footer from "../components/Footer"
-import authorImage from '../assets/music1.jpg'; // Add an author image in the assets folder
+import Footer from "../components/Footer";
+import authorImage from '../assets/music1.jpg'; // You can change this to another image if needed
 
 const About = () => {
   return (
@@ -13,9 +12,9 @@ const About = () => {
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <div className="relative flex items-center justify-center h-full text-center text-white px-6">
             <div>
-              <h1 className="text-5xl font-bold mb-4">Welcome to Our Music Blog</h1>
+              <h1 className="text-5xl font-bold mb-4">Welcome to My Visual Blog</h1>
               <p className="text-lg max-w-3xl mx-auto">
-                Discover insights, stories, and the pulse of the music industry. We're here to connect, inspire, and explore the magic of sound with you.
+                Dive into a space where moments are captured, stories are told through pictures, and every visitor can contribute with titles and comments.
               </p>
             </div>
           </div>
@@ -25,7 +24,7 @@ const About = () => {
         <div className="bg-white rounded-lg p-8 shadow-lg space-y-4 hover:shadow-2xl transition-shadow duration-300">
           <h2 className="text-4xl font-semibold text-center text-gray-800 mb-4">Our Mission & Purpose</h2>
           <p className="text-gray-600 text-lg text-center max-w-3xl mx-auto leading-relaxed">
-            Founded by passionate music enthusiasts, our blog celebrates the diversity and richness of music across all genres. From rock to jazz, electronic to hip-hop, we aim to bring you closer to the music and the stories that shape it.
+            This platform was created to bring together photo lovers and storytellers. Every image shared holds a unique story — and you have the chance to title it, comment on it, and make it part of your own memory. It’s about expression, creativity, and community.
           </p>
         </div>
 
@@ -39,7 +38,7 @@ const About = () => {
           <div>
             <h3 className="text-3xl font-semibold text-gray-800">Meet the Author</h3>
             <p className="text-gray-600 mt-4 leading-relaxed">
-              Hi! I'm Drizzy, the mind and heart behind this blog. With years of experience in music journalism and a lifelong passion for sound, I’ve created this blog as a way to share my love for music with the world. From concert stories to playlists, I’m thrilled to have you join me on this journey!
+              Hi! I'm Drizzy, the creator of this blog. I built this space to capture and share beautiful moments through images. Here, you can not only enjoy pictures but also give them your voice — by adding titles and engaging through comments. Let’s create and connect.
             </p>
           </div>
         </div>
@@ -48,10 +47,10 @@ const About = () => {
         <div className="bg-blue-500 rounded-lg p-8 text-white text-center shadow-lg hover:shadow-2xl transition-shadow duration-300">
           <h3 className="text-3xl font-semibold mb-4">Get in Touch</h3>
           <p className="text-lg max-w-2xl mx-auto mb-4">
-            We love hearing from readers! Whether you have questions, feedback, or want to collaborate, feel free to reach out.
+            Whether you have feedback, questions, or ideas — I’d love to hear from you!
           </p>
-          <a href="mailto:contact@ourmusicblog.com" className="text-lg font-medium underline">
-            contact@ourmusicblog.com
+          <a href="mailto:hardeyemo3@gmail.com" className="text-lg font-medium underline">
+            hardeyemo3@gmail.com
           </a>
         </div>
       </div>

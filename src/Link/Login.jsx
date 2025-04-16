@@ -2,11 +2,15 @@ import React, { useContext, useRef } from 'react';
 import { Context } from '../context/Context';
 import bgImage from '../assets/student-849826_1280.jpg';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = () => {
   const userRef = useRef();
   const passwordRef = useRef();
   const { dispatch, isFetching } = useContext(Context);
+  const navigate = useNavigate();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,6 +22,7 @@ const Login = () => {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
@@ -70,9 +75,9 @@ const Login = () => {
         </form>
 
         <p className="text-center text-sm text-gray-500">
-          Don't have an account?{'=>'} 
-          <a href="/Register" className="text-blue-700 hover:underline"> 
-              Register
+          Don't have an account?{'=>'}
+          <a href="/Register" className="text-blue-700 hover:underline">
+            Register
           </a>
         </p>
       </div>

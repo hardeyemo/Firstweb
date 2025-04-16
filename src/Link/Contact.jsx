@@ -1,7 +1,32 @@
 import React from 'react';
 import Footer from '../components/Footer';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contact = () => {
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "4e068da8-96f4-425d-aee2-bf25a38a222f");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: json
+    }).then((res) => res.json());
+    if (res.success) {
+      toast.success('Your message has been sent successfully!');
+    }
+  }
+
   return (
     <div>
       <div className="max-w-8xl mx-auto px-6 py-16 space-y-12 bg-gray-50 mt-5">
@@ -13,16 +38,18 @@ const Contact = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-lg p-8 md:flex md:space-x-8">
-          <form className="w-full space-y-6 md:w-2/3">
+          <form className="w-full space-y-6 md:w-2/3" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <input
                 type="text"
+                name='name'
                 placeholder="Name"
                 className="border border-gray-300 rounded-md p-3 focus:border-blue-500"
                 required
               />
               <input
                 type="email"
+                name='email'
                 placeholder="Email"
                 className="border border-gray-300 rounded-md p-3 focus:border-blue-500"
                 required
@@ -30,12 +57,14 @@ const Contact = () => {
             </div>
             <input
               type="text"
+              name='subject'
               placeholder="Subject"
               className="w-full border border-gray-300 rounded-md p-3 focus:border-blue-500"
               required
             />
             <textarea
               placeholder="Message"
+              name='message'
               className="w-full border border-gray-300 rounded-md p-3 focus:border-blue-500"
               rows="6"
               required
@@ -46,14 +75,25 @@ const Contact = () => {
             >
               Send Message
             </button>
+            <ToastContainer />
+
           </form>
 
           {/* Optional Map Section */}
           <div className="hidden md:block w-full md:w-1/3 bg-gray-200 rounded-lg overflow-hidden">
-            <div className="h-full w-full flex items-center justify-center text-gray-600 text-lg">
-              Map Placeholder
-            </div>
+            <iframe
+              title="Google Map"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1980.1260329857232!2d7.489271518058084!3d9.057851180616138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0bc82a8f7a1b%3A0x3a420f00b831f8ff!2sAbuja%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1615895943659!5m2!1sen!2sng"
+            ></iframe>
           </div>
+
+
         </div>
 
         {/* Additional Contact Info */}

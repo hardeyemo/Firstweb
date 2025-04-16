@@ -25,9 +25,7 @@ const Home = () => {
         <div className="w-full md:w-2/3">
           <Posts posts={posts} />
         </div>
-        <div className="w-full md:w-1/3">
-          <Side />
-        </div>
+        <div className="w-full md:w-1/3"><Side /></div>
       </div>
       <Footer />
     </div>
