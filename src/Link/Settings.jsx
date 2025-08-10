@@ -9,7 +9,7 @@ const Settings = () => {
     const [password, setPassword] = useState("");
     const [file, setFile] = useState(null);
     const [success, setSuccess] = useState(false);
-    const PF = "http://localhost:8800/images/";
+    const PF = "https://backside-1nl6.onrender.com/images/";
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +22,7 @@ const Settings = () => {
             data.append("file", file);
             updatedUser.profilePic = filename;
             try {
-                await axios.post("http://localhost:8800/app/upload", data);
+                await axios.post("https://backside-1nl6.onrender.com/app/upload", data);
             } catch (err) {
                 console.error("Failed to upload image:", err);
             }

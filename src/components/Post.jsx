@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Post = ({ post }) => {
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://backside-1nl6.onrender.com/images/";
 
   return (
     <div className="p-4 md:p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">

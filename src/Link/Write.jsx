@@ -21,7 +21,7 @@ const Write = () => {
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("http://localhost:8800/app/upload", data, {
+        await axios.post("https://backside-1nl6.onrender.com/app/upload", data, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       } catch (err) {

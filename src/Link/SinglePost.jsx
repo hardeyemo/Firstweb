@@ -7,7 +7,7 @@ import { Context } from "../context/Context";
 import axios from "axios";
 
 const SinglePost = () => {
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://backside-1nl6.onrender.com/images/";
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);

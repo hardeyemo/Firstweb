@@ -4,7 +4,7 @@ import { Context } from "../context/Context";
 
 const Home = () => {
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:8800/images/";
+  const PF = "https://backside-1nl6.onrender.com/images/";
   const [currentUser, setCurrentUser] = useState(user);
   const [menuOpen, setMenuOpen] = useState(false);
 
