@@ -29,7 +29,7 @@ const Settings = () => {
         }
         try {
             const res = await axios.put(
-                "http://localhost:8800/app/users/" + user._id,
+                "https://backside-1nl6.onrender.com/app/users/" + user._id,
                 updatedUser
             );
             setSuccess(true);

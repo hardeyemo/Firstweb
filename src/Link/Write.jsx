@@ -30,12 +30,14 @@ const Write = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:8800/app/posts", newPost);
+      const res = await axios.post("https://backside-1nl6.onrender.com/app/posts", newPost);
       window.location.replace("/post/" + res.data._id);
     } catch (err) {
       console.error("Post creation error:", err);
     }
   };
+  // console.log("Uploaded to:", `https://backside-1nl6.onrender.com/images/${filename}`);
+
 
   return (
     <div className="max-w-4xl mx-auto p-4 md:p-6 lg:p-8 bg-white shadow-md rounded-lg mt-[60px]">

@@ -12,7 +12,7 @@ const Register = () => {
     e.preventDefault();
     setError(false);
     try {
-      const res = await axios.post("http://localhost:8800/app/auth/register", {
+      const res = await axios.post("https://backside-1nl6.onrender.com/app/auth/register", {
         username,
         email,
         password,

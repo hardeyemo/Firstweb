@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await axios.get("http://localhost:8800/app/posts" + search);
+      const res = await axios.get("https://backside-1nl6.onrender.com/app/posts" + search);
       setPosts(res.data);
     };
     fetchPosts();

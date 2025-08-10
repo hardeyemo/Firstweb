@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-white mb-4">About Us</h3>
           <p className="text-gray-400">
-            Our blog is a space for sharing visual stories — from striking photos to heartfelt comments and creative titles. Join us in expressing, connecting, and discovering through images.
+            Our blog is a space for sharing visual stories from striking photos to heartfelt comments and creative titles. Join us in expressing, connecting, and discovering through images.
           </p>
         </div>
 

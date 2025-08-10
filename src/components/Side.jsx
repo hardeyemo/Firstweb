@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import about from "../assets/img_girl.jpg";
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import { Link } from 'react-router-dom';
+// import axios from 'axios';
 
 const Side = () => {
-  const [cats, setCats] = useState([]);
+  // const [cats, setCats] = useState([]);
 
-  useEffect(() => {
-    const fetchCats = async () => {
-      const res = await axios.get('http://localhost:8800/app/categories/');
-      setCats(res.data);
-    };
-    fetchCats();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCats = async () => {
+  //     const res = await axios.get('http://localhost:8800/app/categories/');
+  //     setCats(res.data);
+  //   };
+  //   fetchCats();
+  // }, []);
 
   return (
     <div className="flex flex-col items-center w-80 bg-gray-50 p-4 rounded-lg shadow-lg h-auto">
-      {/* ABOUT Section */}
       <div className="flex flex-col items-center border-t-2 border-gray-300 w-full py-4">
         <h1 className="text-lg font-semibold text-gray-700 mb-2">ABOUT</h1>
         <img className="w-full h-48 object-cover rounded-md border mb-3" src={about} alt="About" />
@@ -28,8 +27,7 @@ const Side = () => {
         </p>
       </div>
 
-      {/* Categories Section */}
-      <div className="flex flex-col items-center w-full text-center mt-6">
+      {/* <div className="flex flex-col items-center w-full text-center mt-6">
         <h1 className="text-lg font-semibold text-gray-700 mb-3">CATEGORIES</h1>
         <ul className="grid grid-cols-2 gap-3 text-gray-600 border-t-2 border-gray-300 pt-3 w-full">
           {cats.map((c) => (
@@ -38,9 +36,8 @@ const Side = () => {
             </Link>
           ))}
         </ul>
-      </div>
+      </div> */}
 
-      {/* Social Media Icons */}
       <div className="flex justify-center space-x-6 text-gray-600 text-2xl">
         <a
           href="https://www.facebook.com/yourfacebookprofile"

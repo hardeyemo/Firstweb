@@ -18,7 +18,7 @@ const SinglePost = () => {
 
   const deleteMe = async () => {
     try {
-      await axios.delete(`http://localhost:8800/app/posts/${post._id}`, {
+      await axios.delete(`https://backside-1nl6.onrender.com/app/posts/${post._id}`, {
         params: { username: user.username },
       });
       console.log("Post ID:", post._id);
@@ -31,7 +31,7 @@ const SinglePost = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:8800/app/posts/${post._id}`, {
+      await axios.put(`https://backside-1nl6.onrender.com/app/posts/${post._id}`, {
         username: user.username,
         title,
         desc,
@@ -44,7 +44,7 @@ const SinglePost = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("http://localhost:8800/app/posts/" + path);
+      const res = await axios.get("https://backside-1nl6.onrender.com/app/posts/" + path);
       setPost(res.data);
       setDesc(res.data.desc);
       setTitle(res.data.title);
